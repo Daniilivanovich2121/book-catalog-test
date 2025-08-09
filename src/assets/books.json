@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "title": "The Angular Guide",
+    "author": "Максим Иванов",
+    "description": "Полное руководство по Angular для начинающих и профессионалов.",
+    "coverImage": "assets/images/angular-guide.jpg",
+    "publishedDate": "2023-01-15",
+    "genre": "Программирование",
+    "pages": 320,
+    "language": "Русский"
+  },
+  {
+    "id": "2",
+    "title": "Чистый код",
+    "author": "Роберт Мартин",
+    "description": "Создание, анализ и рефакторинг кода.",
+    "coverImage": "assets/images/clean-code.jpg",
+    "publishedDate": "2008-08-01",
+    "genre": "Программирование",
+    "pages": 464,
+    "language": "Русский"
+  },
+  {
+    "id": "3",
+    "title": "Совершенный код",
+    "author": "Стив Макконнелл",
+    "description": "Практическое руководство по разработке программного обеспечения.",
+    "coverImage": "assets/images/code-complete.jpg",
+    "publishedDate": "1993-05-01",
+    "genre": "Программирование",
+    "pages": 896,
+    "language": "Русский"
+  },
+  {
+    "id": "4",
+    "title": "JavaScript. Сильные стороны",
+    "author": "Дуглас Крокфорд",
+    "description": "Лучшие практики работы с JavaScript.",
+    "coverImage": "assets/images/javascript-good-parts.jpg",
+    "publishedDate": "2008-05-01",
+    "genre": "Программирование",
+    "pages": 176,
+    "language": "Русский"
+  },
+  {
+    "id": "5",
+    "title": "Грокаем алгоритмы",
+    "author": "Адитья Бхаргава",
+    "description": "Иллюстрированное руководство для программистов.",
+    "coverImage": "assets/images/grokking-algorithms.jpg",
+    "publishedDate": "2016-05-01",
+    "genre": "Алгоритмы",
+    "pages": 288,
+    "language": "Русский"
+  },
+  {
+    "id": "6",
+    "title": "Реактивное программирование",
+    "author": "Алексей Васильев",
+    "description": "Основы реактивного подхода в разработке.",
+    "coverImage": "assets/images/reactive-programming.jpg",
+    "publishedDate": "2021-03-10",
+    "genre": "Программирование",
+    "pages": 210,
+    "language": "Русский"
+  },
+  {
+    "id": "7",
+    "title": "TypeScript быстро",
+    "author": "Борис Черный",
+    "description": "Быстрый старт с TypeScript для JavaScript-разработчиков.",
+    "coverImage": "assets/images/typescript-quick.jpg",
+    "publishedDate": "2022-07-15",
+    "genre": "Программирование",
+    "pages": 185,
+    "language": "Русский"
+  },
+  {
+    "id": "8",
+    "title": "Паттерны проектирования",
+    "author": "Эрих Гамма",
+    "description": "Классическая книга о шаблонах проектирования.",
+    "coverImage": "assets/images/design-patterns.jpg",
+    "publishedDate": "1994-10-21",
+    "genre": "Программирование",
+    "pages": 395,
+    "language": "Русский"
+  },
+  {
+    "id": "9",
+    "title": "Node.js в действии",
+    "author": "Алексей Коваленко",
+    "description": "Разработка серверных приложений на Node.js.",
+    "coverImage": "assets/images/nodejs-in-action.jpg",
+    "publishedDate": "2020-11-20",
+    "genre": "Программирование",
+    "pages": 342,
+    "language": "Русский"
+  },
+  {
+    "id": "10",
+    "title": "Тестирование ПО",
+    "author": "Светлана Кузнецова",
+    "description": "Современные подходы к тестированию программного обеспечения.",
+    "coverImage": "assets/images/software-testing.jpg",
+    "publishedDate": "2021-09-05",
+    "genre": "Тестирование",
+    "pages": 275,
+    "language": "Русский"
+  }
+]
