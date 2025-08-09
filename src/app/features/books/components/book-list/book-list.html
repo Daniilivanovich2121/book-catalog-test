@@ -1,23 +1,19 @@
 <main class="home-container">
-  <!-- Заголовок и поиск -->
   <div class="header">
     <h1>Каталог книг</h1>
-    <app-book-search (searchChanged)="onSearch($event)" ></app-book-search>
+    <app-book-search [(searchTerm)]="searchTerm"></app-book-search>
   </div>
 
-  <!-- Спиннер загрузки -->
   @if (bookState().isLoading) {
     <mat-spinner></mat-spinner>
   }
-  <!-- Сообщение об ошибке -->
   @if (bookState().error) {
     <div class="error-message">
       Произошла ошибка при загрузке книг: {{ bookState().error.message }}
     </div>
   }
-  <!-- Список книг -->
   <div class="books-grid">
-    @for (book of filteredBooks; track book.id) {
+    @for (book of filteredBooks(); track book.id) {
       <app-book-card [book]="book"></app-book-card>
     } @empty {
       @if (!bookState().isLoading && !bookState().error) {

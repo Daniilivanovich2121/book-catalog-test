@@ -3,15 +3,9 @@
     <mat-label>Поиск книг</mat-label>
     <input
       matInput
+      [(ngModel)]="searchTerm"
       placeholder="По названию или автору"
     />
-    <button
-      matSuffix
-      mat-icon-button
-      (click)="clearSearch()"
-      *ngIf="searchTerm"
-    >
-      <mat-icon>close</mat-icon>
-    </button>
+
   </mat-form-field>
 </div>

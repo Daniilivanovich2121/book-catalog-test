@@ -1,8 +1,9 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, model, output, Output, signal} from '@angular/core';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-book-search',
@@ -12,22 +13,13 @@ import {NgIf} from '@angular/common';
     MatInput,
     MatIconButton,
     MatIcon,
-    NgIf
+    NgIf,
+    FormsModule
   ],
   templateUrl: './book-search.html',
   styleUrl: './book-search.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookSearch {
-  searchTerm = '';
-  @Output() searchChanged = new EventEmitter<string>();
-
-  onSearch() {
-    this.searchChanged.emit(this.searchTerm);
-  }
-
-  clearSearch() {
-    this.searchTerm = '';
-    this.searchChanged.emit('');
-  }
+  searchTerm = model.required<string>()
 }

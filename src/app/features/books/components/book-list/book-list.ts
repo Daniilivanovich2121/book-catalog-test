@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {BookCard} from '../book-card/book-card';
 import {BookSearch} from '../book-search/book-search';
@@ -18,11 +18,15 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
 export class BookList implements OnInit {
   bookService = inject(BookService);
   bookState = this.bookService.bookState;
-  filteredBooks = this.bookService.bookState().books;
+  searchTerm = signal('');
+
+  filteredBooks = computed(() => this.bookService.filterBooks(this.searchTerm()));
+
   ngOnInit() {
-  this.bookService.getBooks()
+    this.bookService.getBooks()
   }
+
   onSearch(searchTerm: string) {
-    this.filteredBooks = this.bookService.filterBooks(searchTerm);
+    this.searchTerm.set(searchTerm);
   }
 }
