@@ -22,26 +22,37 @@ export class BookService {
   private readonly http = inject(HttpClient);
   private readonly state = signal<BookStateModel>(BOOK_INITIAL_STATE);
   private readonly router = inject(Router);
+  private readonly localstorageKey = 'app_book'
   bookState = computed(() => this.state())
 
   constructor() {
     this.getBooks()
   }
-
   getBooks(): void {
-    this.setState({isLoading: true});
-    this.http.get<Book[]>('assets/books.json').pipe(
-      finalize(() => this.setState({isLoading: false})),
-      catchError((error) => {
-        this.setState({error: error});
-        return EMPTY;
-      })
-    ).subscribe(response => {
+    const saveState = localStorage.getItem(this.localstorageKey);
+    if (saveState && JSON.parse(saveState).length > 0) {
+      const books = JSON.parse(saveState);
       this.setState({
-        books: response,
-        error: null
+        books: books,
+        error: null,
+      })
+    }else{
+      this.setState({isLoading: true});
+      this.http.get<Book[]>('assets/books.json').pipe(
+        finalize(() => this.setState({isLoading: false})),
+        catchError((error) => {
+          this.setState({error: error});
+          return EMPTY;
+        })
+      ).subscribe(response => {
+        this.setState({
+          books: response,
+          error: null
+        });
       });
-    });
+    }
+
+
   }
 
   createBook(newBook: Book): void {
@@ -49,9 +60,11 @@ export class BookService {
       ...newBook,
       id: this.generateId()
     };
+    const updatedBooks = [book, ...this.bookState().books];
     this.setState({
-      books: [book,...this.bookState().books]
+      books: updatedBooks
     });
+    localStorage.setItem(this.localstorageKey, JSON.stringify(updatedBooks));
   }
 
   filterBooks(searchTerm: string): Book[] {
