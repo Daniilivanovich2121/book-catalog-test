@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, inject, signal} from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {BookCard} from '../book-card/book-card';
 import {BookSearch} from '../book-search/book-search';

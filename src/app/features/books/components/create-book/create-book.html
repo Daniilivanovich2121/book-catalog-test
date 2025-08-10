@@ -4,29 +4,42 @@
       <mat-form-field appearance="outline">
         <mat-label>Название</mat-label>
         <input matInput formControlName="title" required>
-        <mat-error>Обязательное поле</mat-error>
+        @if (createBookForm.controls['title'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Автор</mat-label>
         <input matInput formControlName="author" required>
-        <mat-error>Обязательное поле</mat-error>
+        @if (createBookForm.controls['author'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
     </div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Описание</mat-label>
       <textarea matInput formControlName="description" rows="3"></textarea>
+      @if (createBookForm.controls['description'].hasError('required')) {
+        <mat-error>Обязательное поле</mat-error>
+      }
     </mat-form-field>
 
     <div class="form-row">
       <mat-form-field appearance="outline">
         <mat-label>Дата публикации</mat-label>
         <input matInput formControlName="publishedDate" type="date">
+        @if (createBookForm.controls['publishedDate'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Жанр</mat-label>
         <input matInput formControlName="genre">
+        @if (createBookForm.controls['genre'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
     </div>
 
@@ -34,12 +47,18 @@
       <mat-form-field appearance="outline">
         <mat-label>Страницы</mat-label>
         <input matInput formControlName="pages" type="number">
+        @if (createBookForm.controls['pages'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
 
 
       <mat-form-field appearance="outline">
         <mat-label>Язык</mat-label>
-        <input matInput formControlName="genre">
+        <input matInput formControlName="language">
+        @if (createBookForm.controls['language'].hasError('required')) {
+          <mat-error>Обязательное поле</mat-error>
+        }
       </mat-form-field>
 
     </div>
@@ -50,7 +69,7 @@
   <button mat-button (click)="onNoClick()">Отмена</button>
   <button mat-raised-button color="primary"
           (click)="onSubmit()"
-          [disabled]="createBookForm.valid">
+          [disabled]="createBookForm.invalid">
     Создать
   </button>
 </mat-dialog-actions>

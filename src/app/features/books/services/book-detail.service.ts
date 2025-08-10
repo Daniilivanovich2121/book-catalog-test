@@ -1,11 +1,11 @@
 import {computed, inject, Injectable, signal} from '@angular/core';
 import {BookService} from './book.service';
-
 @Injectable({
   providedIn: 'root'
 })
 export class BookDetailService {
   private readonly bookService = inject(BookService);
+
   selectedBookId = signal<undefined | number>(undefined)
 
   selectedBook = computed(() =>

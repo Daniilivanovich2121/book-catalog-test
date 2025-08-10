@@ -1,8 +1,5 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, model, output, Output, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, model, } from '@angular/core';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
-import {MatIconButton} from '@angular/material/button';
-import {MatIcon} from '@angular/material/icon';
-import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -11,9 +8,6 @@ import {FormsModule} from '@angular/forms';
     MatFormField,
     MatLabel,
     MatInput,
-    MatIconButton,
-    MatIcon,
-    NgIf,
     FormsModule
   ],
   templateUrl: './book-search.html',

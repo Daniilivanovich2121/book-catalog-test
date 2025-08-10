@@ -2,10 +2,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef} from '@angular/material/dialog';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
-import {MatCheckbox} from '@angular/material/checkbox';
 import {MatButton} from '@angular/material/button';
-import {MatOption} from '@angular/material/core';
-import {MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'app-create-book',
@@ -16,11 +13,8 @@ import {MatSelect} from '@angular/material/select';
     MatDialogActions,
     MatInput,
     ReactiveFormsModule,
-    MatCheckbox,
     MatButton,
     MatError,
-    MatSelect,
-    MatOption,
   ],
   templateUrl: './create-book.html',
   styleUrl: './create-book.css',
@@ -38,7 +32,7 @@ public createBookForm: FormGroup = this.fb.group({
   description: ['', Validators.required],
   publishedDate: ['', Validators.required],
   genre: ['', Validators.required],
-  pages: [0, Validators.required],
+  pages: ['', Validators.required],
   language: ['', Validators.required],
 })
   onNoClick(): void {

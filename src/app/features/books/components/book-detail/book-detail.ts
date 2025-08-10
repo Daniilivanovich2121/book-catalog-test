@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, inject, OnInit, input} from '@angula
 import {BookDetailService} from '../../services/book-detail.service';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {DatePipe} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
@@ -12,13 +11,13 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
   imports: [
     MatCardModule,
     MatButtonModule,
-    DatePipe,
     MatIconModule,
     RouterModule,
     MatProgressSpinner
   ],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class BookDetail implements OnInit {

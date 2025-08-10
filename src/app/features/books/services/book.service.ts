@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Book} from '../models/book.model';
 import {catchError, EMPTY, finalize} from 'rxjs';
 import {Router} from '@angular/router';
-import {CreateBook} from '../components/create-book/create-book';
-
 export interface BookStateModel {
   isLoading: boolean;
   books: Book[];
@@ -76,6 +74,6 @@ export class BookService {
     this.router.navigate(['books', book.id]);
   }
   private generateId(): number {
-    return Math.floor(Math.random() * 1000000);
+    return Math.floor(Math.random() * 1000);
   }
 }
