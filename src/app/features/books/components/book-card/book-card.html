@@ -1,4 +1,10 @@
 <mat-card class="book-card">
+  <img
+    mat-card-image
+    [src]="book().coverImage"
+    [alt]="book().title"
+    class="book-cover"
+  >
   <mat-card-header>
     <mat-card-title>{{ book().title }}</mat-card-title>
     <mat-card-subtitle>{{ book().author }}</mat-card-subtitle>

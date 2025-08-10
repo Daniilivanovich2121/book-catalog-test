@@ -1,0 +1,58 @@
+@if (selectedBook(); as book) {
+  <mat-card class="book-detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+      <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+    </mat-card-header>
+
+
+    <mat-card-content>
+      <div class="book-meta">
+        @if (book.publishedDate) {
+          <div class="meta-item">
+            <mat-icon>calendar_today</mat-icon>
+            <span>{{ book.publishedDate }}</span>
+          </div>
+        }
+
+        @if (book.genre) {
+          <div class="meta-item">
+            <mat-icon>category</mat-icon>
+            <span>{{ book.genre }}</span>
+          </div>
+        }
+
+        @if (book.pages) {
+          <div class="meta-item">
+            <mat-icon>menu_book</mat-icon>
+            <span>{{ book.pages }} страниц</span>
+          </div>
+        }
+
+        @if (book.language) {
+          <div class="meta-item">
+            <mat-icon>language</mat-icon>
+            <span>{{ book.language }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="book-description">
+        <h3>Описание</h3>
+        <p>{{ book.description || 'Описание отсутствует' }}</p>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/books">
+        <mat-icon>arrow_back</mat-icon>
+        Назад к списку
+      </button>
+    </mat-card-actions>
+  </mat-card>
+} @else {
+  <div class="loading-message">
+    <mat-spinner></mat-spinner>
+    <p>Загрузка данных о книге...</p>
+  </div>
+}

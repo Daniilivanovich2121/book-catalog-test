@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
   ],
   templateUrl: './book-search.html',
   styleUrl: './book-search.css',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookSearch {

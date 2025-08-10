@@ -19,9 +19,11 @@ import {DatePipe} from '@angular/common';
     DatePipe,
     MatCardSubtitle,
     MatCardTitle,
+    MatCardImage,
   ],
   templateUrl: './book-card.html',
   styleUrl: './book-card.css',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookCard {

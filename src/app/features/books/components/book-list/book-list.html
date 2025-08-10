@@ -1,6 +1,10 @@
 <main class="home-container">
   <div class="header">
     <h1>Каталог книг</h1>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Добавить книгу
+    </button>
     <app-book-search [(searchTerm)]="searchTerm"></app-book-search>
   </div>
 
@@ -14,7 +18,10 @@
   }
   <div class="books-grid">
     @for (book of filteredBooks(); track book.id) {
-      <app-book-card [book]="book"></app-book-card>
+      <app-book-card
+        [book]="book"
+        (click)="bookInfo(book)"
+      ></app-book-card>
     } @empty {
       @if (!bookState().isLoading && !bookState().error) {
         <div class="no-books">Книги не найдены</div>
