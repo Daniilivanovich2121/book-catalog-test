@@ -1,15 +1,16 @@
-import {computed, inject, Injectable, signal} from '@angular/core';
+import { inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Book} from '../models/book.model';
 import {catchError, EMPTY, finalize} from 'rxjs';
 import {Router} from '@angular/router';
-export interface BookStateModel {
+
+interface BookStateModel {
   isLoading: boolean;
   books: Book[];
   error: any;
 }
 
-export const BOOK_INITIAL_STATE: BookStateModel = {
+const BOOK_INITIAL_STATE: BookStateModel = {
   isLoading: false,
   books: [],
   error: null,
@@ -20,14 +21,16 @@ export const BOOK_INITIAL_STATE: BookStateModel = {
 })
 export class BookService {
   private readonly http = inject(HttpClient);
-  private readonly state = signal<BookStateModel>(BOOK_INITIAL_STATE);
   private readonly router = inject(Router);
+
+  private readonly state = signal<BookStateModel>(BOOK_INITIAL_STATE);
   private readonly localstorageKey = 'app_book'
-  bookState = computed(() => this.state())
+  bookState = this.state.asReadonly()
 
   constructor() {
     this.getBooks()
   }
+
   getBooks(): void {
     const saveState = localStorage.getItem(this.localstorageKey);
     if (saveState && JSON.parse(saveState).length > 0) {
@@ -76,14 +79,15 @@ export class BookService {
     );
   }
 
+  navigateToBookInfo(book: Book): void {
+    this.router.navigate(['books', book.id]);
+  }
+
   private setState(partialState: Partial<BookStateModel>): void {
     const newState = {...this.state(), ...partialState};
     this.state.set(newState);
   }
 
-  navigateToBookInfo(book: Book) {
-    this.router.navigate(['books', book.id]);
-  }
   private generateId(): number {
     return Math.floor(Math.random() * 1000);
   }

@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, computed, inject, signal} from '@angular/core';
-import {BookService} from '../../services/book.service';
+import {BookService} from '../../services/book-service';
 import {BookCard} from '../book-card/book-card';
 import {BookSearch} from '../book-search/book-search';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
@@ -26,6 +26,7 @@ import {MatButton} from '@angular/material/button';
 export default class BookList {
   bookService = inject(BookService);
   dialog = inject(MatDialog);
+
   bookState = this.bookService.bookState;
   searchTerm = signal('');
 
@@ -39,7 +40,6 @@ export default class BookList {
     const dialogRef = this.dialog.open(CreateBook, {
       width: '600px'
     });
-
     dialogRef.afterClosed().subscribe((result: Book) => {
       if (result) {
         this.bookService.createBook(result);

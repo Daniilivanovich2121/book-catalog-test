@@ -4,11 +4,11 @@ import {
   MatCardActions,
   MatCardContent,
   MatCardHeader,
-  MatCardImage,
   MatCardSubtitle, MatCardTitle
 } from '@angular/material/card';
 import {Book} from '../../models/book.model';
 import {DatePipe} from '@angular/common';
+
 @Component({
   selector: 'app-book-card',
   imports: [
@@ -19,7 +19,6 @@ import {DatePipe} from '@angular/common';
     DatePipe,
     MatCardSubtitle,
     MatCardTitle,
-    MatCardImage,
   ],
   templateUrl: './book-card.html',
   styleUrl: './book-card.css',

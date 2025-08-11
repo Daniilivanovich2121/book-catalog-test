@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef} from '@angular/material/dialog';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
@@ -26,15 +26,16 @@ export class CreateBook {
   private readonly dialogRef = inject(MatDialogRef);
   public readonly data = inject(MAT_DIALOG_DATA);
 
-public createBookForm: FormGroup = this.fb.group({
-  title:['', Validators.required],
+public createBookForm = this.fb.nonNullable.group({
+  title: ['', Validators.required],
   author: ['', Validators.required],
   description: ['', Validators.required],
   publishedDate: ['', Validators.required],
   genre: ['', Validators.required],
-  pages: ['', Validators.required],
+  pages: [0, Validators.required],
   language: ['', Validators.required],
 })
+
   onNoClick(): void {
     this.dialogRef.close();
   }

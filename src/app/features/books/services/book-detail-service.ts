@@ -1,5 +1,6 @@
 import {computed, inject, Injectable, signal} from '@angular/core';
-import {BookService} from './book.service';
+import {BookService} from './book-service';
+
 @Injectable({
   providedIn: 'root'
 })
